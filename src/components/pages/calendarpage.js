@@ -31,6 +31,24 @@ export default function CalendarPage () {
         navigate(`/showList/0/${currentMonth + 1}/${day}`, { replace: false });
     };
 
+    const handleChangeMonth = (direction) => {
+        if (direction === 0) { // forward in time
+            if (currentMonth == 11) {
+                setCurrentYear(currentYear + 1);
+                setCurrentMonth(0);
+            } else {
+                setCurrentMonth(currentMonth + 1);
+            }
+        } else { //backwards in time
+            if (currentMonth === 0) {
+                setCurrentYear(currentYear - 1);
+                setCurrentMonth(11);
+            } else {
+                setCurrentMonth(currentMonth - 1);
+            }      
+        }
+    }
+
 
     return (
         <div className="calendar-page-wrapper">
@@ -47,6 +65,8 @@ export default function CalendarPage () {
                 </button>
                 ))}
             </div>
+            <button onClick={() => handleChangeMonth(0)}>next month</button>
+            <button onClick={() => handleChangeMonth(1)}>previous month</button>
         </div>
     );
 }

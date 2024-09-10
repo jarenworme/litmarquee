@@ -1,4 +1,6 @@
 /*
+The SHOWS array is a mock-database that holds all the showtime info for upcoming theatre arts events.
+
 There are two elements in the main array, representing the current year and the next year as SHOWS[0] and SHOWS[1] respectively.
 
 Each year has 12 subarrays for each month after an empty array at position 0 so that the indexes match the month number. 
@@ -7,8 +9,8 @@ So, if it is 2024, then January 2024 is SHOWS[0][1], February is SHOWS[0][2] etc
 Each month array has an array for each day in the month following the same principle as the month arrays. 
 So January 1 2024 is SHOWS[0][1][1], March 8 2025 is SHOWS[1][3][8] etc.
 
-Each day array is either empty, meaning no 
-
+Each day array is either empty, meaning no shows are scheduled for that day, or will contain an array where each element holds all the info for a show.
+The info is of the form: TBD
 
 */
 
@@ -164,7 +166,9 @@ const SHOWS = [
             // 7
             [],
             // 8
-            [],
+            [
+                ["Tina Turner", 7]
+            ],
             // 9
             [],
             // 10
