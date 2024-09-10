@@ -28,7 +28,6 @@ export default function CalendarPage () {
 
 
     const handleDayClick = (day) => {
-        console.log(`Selected day: ${day}/${currentMonth + 1}/${currentYear}`);
         navigate(`/showList/0/${currentMonth + 1}/${day}`, { replace: false });
     };
 

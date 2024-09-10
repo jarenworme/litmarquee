@@ -11,8 +11,8 @@ export default function LandingPage () {
 
     return (
         <div className="landing-page-wrapper">
-            <h1>landing page</h1>
-            <button onClick={routeCalendars}>route</button>
+            <h1>Welcome to the website!</h1>
+            <button onClick={routeCalendars}>View Calendar</button>
         </div>
     );
 }
