@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SHOWS from "../database";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 export default function CalendarPage () {
     // set up variable for navigation
@@ -10,6 +11,10 @@ export default function CalendarPage () {
     // state variables to hold the current year and month for initial calendar generation
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+    // also hold the month and year in two variables that do not change to anchor a limit on switching calendar months
+    const currentMonthStatic = new Date().getMonth();
+    const currentYearStatic = new Date().getFullYear();
 
     // Helper function to get the number of days in a month
     const getDaysInMonth = (month, year) => {
@@ -26,6 +31,7 @@ export default function CalendarPage () {
         return days;
     };
 
+    const navigateHome = () => navigate("/", { replace: false });
 
     const handleDayClick = (day) => {
         navigate(`/showList/0/${currentMonth + 1}/${day}`, { replace: false });
@@ -52,21 +58,36 @@ export default function CalendarPage () {
 
     return (
         <div className="calendar-page-wrapper">
-            <h1>calendar page</h1>
-            <h2>{`Month: ${currentMonth + 1}, Year: ${currentYear}`}</h2>
-            <div className="calendar-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '10px' }}>
-                {generateDays().map((day) => (
-                <button
-                    key={day}
-                    onClick={() => handleDayClick(day)}
-                    style={{ padding: '10px', backgroundColor: '#f0f0f0', border: '1px solid #ccc', cursor: 'pointer' }}
-                >
-                    {day}
+            <div className="cp-nav-bar">
+                <button onClick={navigateHome}>
+                    <span>LitMarquee</span>
+                    <span>Toronto</span>
                 </button>
-                ))}
+                <a href="https://www.instagram.com/litmarquee_toronto/" target="_blank">
+                    <FontAwesomeIcon icon={faInstagram} />
+                </a>
             </div>
-            <button onClick={() => handleChangeMonth(0)}>next month</button>
-            <button onClick={() => handleChangeMonth(1)}>previous month</button>
+            <div className="cp-body">
+                <h1>calendar page</h1>
+                <h2>{`Month: ${currentMonth + 1}, Year: ${currentYear}`}</h2>
+                <div className="calendar-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '10px' }}>
+                    {generateDays().map((day) => (
+                    <button
+                        key={day}
+                        onClick={() => handleDayClick(day)}
+                        style={{ padding: '10px', backgroundColor: '#f0f0f0', border: '1px solid #ccc', cursor: 'pointer' }}
+                    >
+                        {day}
+                    </button>
+                    ))}
+                </div>
+                <button onClick={() => handleChangeMonth(1)} disabled={currentMonth <= currentMonthStatic && currentYear === currentYearStatic}>
+                    <FontAwesomeIcon icon={faArrowLeft} size="2x" className="arrow-left" />
+                </button>
+                <button onClick={() => handleChangeMonth(0)} disabled={currentMonth === 11 && currentYear === currentYearStatic + 1}>
+                    <FontAwesomeIcon icon={faArrowRight} size="2x" className="arrow-right" />
+                </button>
+            </div>
         </div>
     );
 }

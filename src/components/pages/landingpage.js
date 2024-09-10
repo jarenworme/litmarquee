@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 
 export default function LandingPage () {
@@ -12,6 +14,9 @@ export default function LandingPage () {
     return (
         <div className="landing-page-wrapper">
             <h1>Welcome to the website!</h1>
+            <a href="https://www.instagram.com/litmarquee_toronto/" target="_blank">
+                <FontAwesomeIcon icon={faInstagram} />
+            </a>
             <button onClick={routeCalendars}>View Calendar</button>
         </div>
     );
