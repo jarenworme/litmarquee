@@ -1,10 +1,13 @@
-import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import SHOWS from "../database";
 
 
 export default function CalendarPage () {
     // set up variable for navigation
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
+
+    // state variables to hold the current year and month for initial calendar generation
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
@@ -26,6 +29,7 @@ export default function CalendarPage () {
 
     const handleDayClick = (day) => {
         console.log(`Selected day: ${day}/${currentMonth + 1}/${currentYear}`);
+        navigate(`/showList/0/${currentMonth + 1}/${day}`, { replace: false });
     };
 
 

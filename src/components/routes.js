@@ -11,7 +11,7 @@ export default function Router (){
             children: [
                 {path: '/', element: <LandingPage />},
                 {path: '/calendarPage', element: <CalendarPage />},
-                {path: '/showList', element: <ShowList />},
+                {path: '/showList/:yearP/:monthP/:dayP', element: <ShowList />},
             ]
         },
     ]);
