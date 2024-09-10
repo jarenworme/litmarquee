@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/litmarquee/static/css/main.f855e6bc.css",
-    "main.js": "/litmarquee/static/js/main.aaac4eab.js",
+    "main.js": "/litmarquee/static/js/main.dda4cb4d.js",
     "static/js/453.bef0614f.chunk.js": "/litmarquee/static/js/453.bef0614f.chunk.js",
     "index.html": "/litmarquee/index.html",
     "main.f855e6bc.css.map": "/litmarquee/static/css/main.f855e6bc.css.map",
-    "main.aaac4eab.js.map": "/litmarquee/static/js/main.aaac4eab.js.map",
+    "main.dda4cb4d.js.map": "/litmarquee/static/js/main.dda4cb4d.js.map",
     "453.bef0614f.chunk.js.map": "/litmarquee/static/js/453.bef0614f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.aaac4eab.js"
+    "static/js/main.dda4cb4d.js"
   ]
 }
